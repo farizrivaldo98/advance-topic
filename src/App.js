@@ -1,23 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route } from "react-router-dom";
+import LernHOC from "./pages/LernHOC";
 
 function App() {
+  const Button = (props) => <button style={props.style}>Click me</button>;
+  const Text = (props) => <text style={props.style}>apapun ini test</text>;
+
+  const StyleButton = LernHOC(Button);
+  const StyleText = LernHOC(Text);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <StyleButton />
+      <StyleText />
+      <Routes>
+        <Route path="/" element={<LernHOC />} />
+      </Routes>
+      <p>Apapun</p>
     </div>
   );
 }
